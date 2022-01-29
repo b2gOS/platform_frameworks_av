@@ -197,7 +197,9 @@ struct MediaCodec : public AHandler {
     // of frames that were rendered.
     static size_t CreateFramesRenderedMessage(
             const std::list<FrameRenderTracker::Info> &done, sp<AMessage> &msg);
-
+// b2g Start
+    sp<GraphicBuffer> getOutputGraphicBufferFromIndex(size_t index);
+// b2g End
 protected:
     virtual ~MediaCodec();
     virtual void onMessageReceived(const sp<AMessage> &msg);

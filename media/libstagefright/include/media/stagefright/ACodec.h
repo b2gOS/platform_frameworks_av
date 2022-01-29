@@ -94,7 +94,9 @@ struct ACodec : public AHierarchicalStateMachine, public CodecBase {
     };
 
     static status_t getOMXChannelMapping(size_t numChannels, OMX_AUDIO_CHANNELTYPE map[]);
-
+// b2g Start
+    friend struct MediaCodec;
+// b2g End
 protected:
     virtual ~ACodec();
 
@@ -281,6 +283,9 @@ private:
 
     sp<IGraphicBufferSource> mGraphicBufferSource;
     int64_t mRepeatFrameDelayUs;
+// b2g Start
+    bool mUseUndequeuedBufs;
+// b2g End
     int64_t mMaxPtsGapUs;
     float mMaxFps;
     double mFps;
